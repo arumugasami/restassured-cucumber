@@ -14,8 +14,8 @@ Feature: Webservice Testing of countries
   Scenario Outline: User calls web service for an individual country and validate
     the response
 
-    Given the user calls the "<country>" service
-    When a user validates response the "<name>","<alpha2_code>", "<alpha3_code>"
+    Given the user calls the specific "<country>" service
+    When a user validates response the "<name>","<alpha2_code>", "<alpha3_code>" of individual countries
     Then the status code is Http Ok
 
     Examples: 
@@ -27,8 +27,8 @@ Feature: Webservice Testing of countries
   Scenario Outline: User calls web service for an invalid country and validate
     the response
 
-    Given the user calls the "<country>" service
-    When a user validates response the "<message>"
+    Given the user calls the specific "<country>" service
+    When a user validates  the "<message>" response of invalid country
     Then the status code is Http Ok
     Examples: 
       | country     | message                   |

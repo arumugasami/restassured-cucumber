@@ -52,33 +52,32 @@ public class StepDefinitions{
     }
     
     
-    @Given("^the user calls the \"([^\"]*)\" service$")
-    public void the_user_calls_the_service(String arg1) throws URISyntaxException {
+    @Given("^the user calls the specific \"([^\"]*)\" service$")
+    public void the_user_calls_the_specific_service(String arg1) throws URISyntaxException {
     	baseURI = "http://services.groupkt.com";
 		basePath= "/country/get/";
 		response = when().get(new URI(arg1));
     }
-  
     
+   
     
-    @When("^a user validates response the \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
-    public void a_user_validates_response_the_(String country, String alpha2, String alpha3) {
-        
+    @When("^a user validates response the \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" of individual countries$")
+    public void a_user_validates_response_the_of_individual_countries(String country, String alpha2, String alpha3) {
     	response.then().body("RestResponse.result.name", 
     			equalTo(country),
     			"RestResponse.result.alpha2_code",equalTo(alpha2),
     			"RestResponse.result.alpha3_code",equalTo(alpha3));
         	
     }
-    
 
-	@When("^a user validates response the \"([^\"]*)\"$")
-	public void a_user_validates_response_the(String arg1) {
+
+	@When("^a user validates  the \"([^\"]*)\" response of invalid country$")
+	public void a_user_validates_the_response_of_invalid_country(String arg1) {
 		String responseData = response.thenReturn().body().asString();
 		System.out.println(responseData);
 		Assert.assertTrue((responseData.contains(arg1)));
-
 	}
+
 	
 	@Given("^the user makes a post request \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
 	public void the_user_makes_a_post_request(String country, String alpha2, String alpha3) {
