@@ -82,7 +82,7 @@ public class StepDefinitions{
 	@Given("^the user makes a post request \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
 	public void the_user_makes_a_post_request(String country, String alpha2, String alpha3) {
 		given().parameters("name","country" ,
-				"alpha2_code", "alpha2", "alpha3_code", "alpha3").post("/post");
+				"alpha2_code", "alpha2", "alpha3_code", "alpha3").contentType("application/json").post("/post");
 		
 	}
 		
