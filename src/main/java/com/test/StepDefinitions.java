@@ -1,7 +1,11 @@
 package com.test;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.CoreMatchers.*;
+import static io.restassured.RestAssured.basePath;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 

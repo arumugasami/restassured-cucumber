@@ -1,6 +1,6 @@
 Feature: Webservice Testing of countries
   
-Scenario : User calls web service to get all countries and validate that certain
+  Scenario : User calls web service to get all countries and validate that certain
     countries are present in it
      Given the user makes a call to the all country service
      When a user searches the countries by code
@@ -8,9 +8,9 @@ Scenario : User calls web service to get all countries and validate that certain
       | country1 | US     |
       | country2 | DE     |
       | country3 | GB     |
-
+  
    Then the status code is Http Ok
-   
+
   Scenario Outline: User calls web service for an individual country and validate
     the response
 
@@ -29,13 +29,13 @@ Scenario : User calls web service to get all countries and validate that certain
 
     Given the user calls the "<country>" service
     When a user validates response the "<message>"
-
+    Then the status code is Http Ok
     Examples: 
-      | country | message                                 |
-      | isocode/ui      | The requested resource is not available |
-      | isocode/po      | The requested resource is not available |
+      | country     | message                   |
+      | iso2code/ui | No matching country found |
+      | iso2code/po | No matching country found |
       
-
+           
     #Scenario Outline: User calls the web service to add a new country to it
     # Given the user makes a post request of with "<name>","<alpha2_code>", "<alpha3_code>"
     #When user gets a valid response back with "<country>" 
@@ -44,3 +44,4 @@ Scenario : User calls web service to get all countries and validate that certain
      # Examples: 
      #| name         | alpha2_code | alpha3_code |
      #| test_country | test_2      | test_2      |
+      
