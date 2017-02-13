@@ -32,8 +32,8 @@ Scenario : User calls web service to get all countries and validate that certain
 
     Examples: 
       | country | message                                 |
-      | ui      | The requested resource is not available |
-      | po      | The requested resource is not available |
+      | isocode/ui      | The requested resource is not available |
+      | isocode/po      | The requested resource is not available |
       
 
     #Scenario Outline: User calls the web service to add a new country to it

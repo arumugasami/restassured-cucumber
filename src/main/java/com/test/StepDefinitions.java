@@ -71,7 +71,8 @@ public class StepDefinitions{
 	@When("^a user validates response the \"([^\"]*)\"$")
 	public void a_user_validates_response_the(String arg1) {
 		String responseData = response.thenReturn().body().asString();
-		Assert.assertTrue((responseData.contains("The requested resource is not available")));
+		System.out.println(responseData);
+		Assert.assertTrue((responseData.contains(arg1)));
 
 	}
 	
